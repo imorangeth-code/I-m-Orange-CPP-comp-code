@@ -1,24 +1,20 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <bits/stdc++.h>
+using namespace std;
 
-char *chr;
-
-const char *select_manu()
+int main()
 {
-    chr = new char[100]; // allocate 100 bytes
-    if (chr == NULL) {
-        perror("malloc failed");
-        exit(1);
+    string s;
+    cin >> s;
+    for(int i = 0; i < s.size(); i++)
+    {
+        for(int j = 2*i; j < s.size()*2-1 ;j++)
+        {
+            cout << " ";
+        }
+        for(int j = 0; j <= 2*i; j++)
+        {
+            cout << s[abs(i-j)] << " ";
+        }
+        cout << '\n';
     }
-
-    printf("Enter character for menu :: ");
-    scanf("%99s", chr); // safe with limit
-    return chr;
-}
-
-int main() {
-    const char *result = select_manu();
-    printf("%s\n", result);
-    free(chr); // release memory
-    return 0;
 }
