@@ -19,37 +19,26 @@ int main() {
     int t;
     cin >> t;
     long long int count = 0;
-    for(int i = 1; i <= 44; i++)
-    {
-        nugget(i);
-    }
     while(t--)
     {
-        long long int l,r;
+        int l,r;
         cin >> l >> r;
         
         if(l == r)
         {
-            if(l < 44)
-            {
-                if(dp[l]) count ++;
-                continue;
-            }else{
-                count += 1;
-                continue;
-            }
-            
+            if(nugget(l))count++;
+            continue;
         }
         if(l < 44 && r >= 44)
         {
             for(int i = l; i <= 44; i++) {
-                if(dp[i]) count ++;
+		    if(nugget(i)) count ++;
             }
             count += r-44;
 	    }else if (l < 44 && r < 44)
         {
-            for(long long int i = l; i <= r; i++) {
-		        if(dp[i]) count ++;
+            for(int i = l; i <= r; i++) {
+		    if(nugget(i)) count ++;
             }
         }else{
             count += r-l+1;
