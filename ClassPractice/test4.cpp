@@ -4,27 +4,18 @@ using namespace std;
 
 int main()
 {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    long long int n;
+    int n;
     cin >> n;
-    if (n < 100000)
+    for(int i = 0; i < n; i++)
     {
-        cout <<2*n << '\n';
-        for(int i =0; i < n; i++)
+        for(int j = 1; j < n-i; j++)
         {
-            cout << "0 1 ";
+            cout << " ";
         }
-
-    }else {
-        cout << "100000" << '\n';
-
-        for(int i =0; i < 99999; i++)
+        for(int j = 0 ; j < 2*i+1; j++)
         {
-            cout << "0 ";
+            cout << "*";
         }
-        cout << n;
-
+        cout << "\n";
     }
-    
 }
